@@ -1,6 +1,6 @@
 <html>
     <div style='margin-top:15px; padding:5px; background-color:white'>
->
+
 <form action='<?php echo $_SERVER["PHP_SELF"];?>' method="post">
 		<input type="number" name="glavoro" placeholder="Quanti giorni durera' il lavoro?"/><br/>
         <p size="4", color="red">Campo obbligatorio</p><br>
@@ -22,24 +22,14 @@ if (isset($_POST["calcolo"]))
     $hlav = $_POST["hlavoro"];
     $pora = $_POST["poraria"];
 
-    $n1 = $glav; 
-    $n2 = $hlav; 
-    $n3 = $pora; 
-
-    echo $n1; 
-    echo $n2; 
-    echo $n3; 
-
-    function tot($n1, $n2, $n3){
-        
-        $tot = [($n3*$n2)*$n1]; 
-        return $tot; 
-    }
-    $tot = tot($n1, $n2, $n3); 
-    
-    echo $tot; 
-    echo "la paga per questo lavoro ti renderà : "; 
-    echo "$";
-
+    function tot($glav, $hlav, $pora){
+		 
+		$tot = ($pora*$hlav)*$glav;
+		return $tot;
+		}
+		
+		$tot = tot($glav, $hlav, $pora);
+		echo "La paga totale e': ".$tot; 
+        echo "$"; 
 }
 ?>
